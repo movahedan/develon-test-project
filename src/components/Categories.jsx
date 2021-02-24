@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useRequest } from 'redux-query-react';
 
 import { categoriesSelectors, categoriesQueryConfigs } from 'redux-store';
+import { Loading } from './Loading';
 
 const ImageList = ({ categoryId }) => {
   const [page, setPage] = useState(1);
@@ -17,18 +18,17 @@ const ImageList = ({ categoryId }) => {
   );
 
   if (images?.length === 0 && !isFinished) {
-    return <div>loading</div>;
+    return <Loading />;
   }
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
-      {isPending && <div>loading</div>}
       {images.map((image, index) => (
         <span key={image.id + index} style={{ marginRight: 2 }}>
           {image.id}
         </span>
       ))}
       <div onClick={() => !isPending && setPage((page) => page + 1)}>
-        {isPending ? <span>loading</span> : <span>Load More</span>}
+        {isPending ? <Loading /> : <span>Load More</span>}
       </div>
     </div>
   );
@@ -59,7 +59,7 @@ export const Categories = () => {
   const categories = useSelector(categoriesSelectors.getCategories);
 
   if (isPending || (categories.length === 0 && !isFinished)) {
-    return <div>loading</div>;
+    return <Loading />;
   }
   return (
     <ol>
