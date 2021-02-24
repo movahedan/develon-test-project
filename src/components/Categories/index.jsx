@@ -1,9 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useRequest } from 'redux-query-react';
 import classnames from 'classnames';
 
-import { categoriesSelectors } from 'redux-store';
+import { categoriesQueryConfigs, categoriesSelectors } from 'redux-store';
+import { Loading } from 'components';
 import { routes } from 'utils';
 
 const CategoryItem = ({ className, ...props }) => {
@@ -26,8 +28,13 @@ const CategoryItem = ({ className, ...props }) => {
 };
 
 export const Categories = ({ itemClassName, className }) => {
+  const [{ isPending }] = useRequest(
+    categoriesQueryConfigs.categoriesRequest()
+  );
+
   const categories = useSelector(categoriesSelectors.getCategories);
 
+  if (isPending) return <Loading />;
   return (
     <ol className={className}>
       {categories.map((category) => (
