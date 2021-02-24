@@ -39,7 +39,6 @@ export const paginatedImagesByCategoryIdRequest = ({
     }),
     update: {
       imagesByCategoryId: (prev = {}, next) => {
-        console.log({ prev, next });
         return {
           ...prev,
           [category_ids]: [
