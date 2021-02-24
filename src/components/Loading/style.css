@@ -1,9 +1,3 @@
-.react-loading {
-  width: 64px;
-  height: 64px;
-  pointer-events: none;
-}
-
 @media (prefers-reduced-motion: no-preference) {
   .react-loading {
     animation: App-logo-spin infinite 2s linear;

@@ -1,13 +1,17 @@
 import React from 'react';
 
-import { Categories } from 'components';
+import { Navbar } from 'components';
+import { Containers } from 'containers';
 
 import './index.css';
 
 function App() {
   return (
-    <div>
-      <Categories />
+    <div className="h-full flex flex-col md:flex-row">
+      <Navbar />
+      <main className="flex-1 p-6 lg:px-6">
+        <Containers />
+      </main>
     </div>
   );
 }
