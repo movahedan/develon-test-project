@@ -51,7 +51,7 @@ export const Navbar = ({ className }) => {
 
       <div
         className={classnames(
-          'transition-transform duration-300 transform overflow-x-auto flex-1',
+          'transition-transform duration-300 transform overflow-x-auto flex-1 flex items-center md:block',
           isMinimal
             ? 'translate-y-0 translate-x-0 '
             : '-translate-y-full md:translate-y-0 md:-translate-x-full w-0 h-0'

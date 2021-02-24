@@ -1,5 +1,5 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useMemo } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useRequest } from 'redux-query-react';
 import classnames from 'classnames';
@@ -16,13 +16,12 @@ const CategoryItem = ({ className, ...props }) => {
       to={routes.category.path(id)}
       activeClassName="bg-secondary"
       className={classnames(
-        'cursor-pointer bg-primary-light rounded px-4 lg:px-6 mx-2 md:mx-0 md:my-2',
+        'cursor-pointer rounded px-4 py-2 lg:px-6 mx-2 md:mx-0 md:my-2',
+
         className
       )}
     >
-      <span className="text-xl lg:text-2xl py-2 inline-block capitalize">
-        {name}
-      </span>
+      <span className="text-xl lg:text-2xl capitalize">{name}</span>
     </NavLink>
   );
 };

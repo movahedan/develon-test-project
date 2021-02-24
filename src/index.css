@@ -3,6 +3,9 @@ body,
 #root {
   height: 100%;
 }
+body {
+  font-family: 'Montserrat' !important;
+}
 
 @tailwind base;
 @tailwind components;
