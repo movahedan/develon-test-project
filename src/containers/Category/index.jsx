@@ -9,8 +9,7 @@ import { chunkArray } from 'utils';
 
 import { Image } from './Image';
 import { LoadMore } from './LoadMore';
-
-import './style.css';
+import { S_GridItem, S_GridSystem, S_Title } from './styled';
 
 const CategoryContainer = () => {
   const {
@@ -32,26 +31,18 @@ const CategoryContainer = () => {
   if (!category) return <Loading />;
   return (
     <div className="w-full flex flex-col pb-6">
-      <h1 className="text-4xl font-bold mb-8">
+      <S_Title>
         Images in <span className="capitalize">{category.name}</span> category
-      </h1>
+      </S_Title>
 
       {chunkArray(images, 10).map((chunk, idx) => (
-        <div
-          key={idx}
-          className="grid-container md:max-h-screen overflow-hidden mb-2"
-        >
+        <S_GridSystem key={idx}>
           {chunk.map((image, index) => (
-            <div
-              key={`${image.id} ${index}`}
-              className={`grid-picture-${
-                index + 1
-              } sm:mb-4 md:mb-0 rounded-md border-2 border-gray-light hover:border-secondary-light`}
-            >
+            <S_GridItem index={index} key={`${image.id} ${index}`}>
               <Image image={image} />
-            </div>
+            </S_GridItem>
           ))}
-        </div>
+        </S_GridSystem>
       ))}
 
       <LoadMore

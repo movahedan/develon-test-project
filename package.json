@@ -20,6 +20,7 @@
     "redux-query": "^3.4.2",
     "redux-query-interface-superagent": "^3.4.2",
     "redux-query-react": "^3.4.2",
+    "styled-components": "^5.2.1",
     "web-vitals": "^1.0.1"
   },
   "scripts": {

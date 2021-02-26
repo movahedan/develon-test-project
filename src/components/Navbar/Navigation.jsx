@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import { routes } from 'utils';
 
-import { Categories } from '../Categories';
+import { S_NavCategories } from './styled';
 
 export const Navigation = () => {
   return (
@@ -14,7 +14,7 @@ export const Navigation = () => {
       >
         Categories
       </NavLink>
-      <Categories className="flex flex-row md:flex-col md:max-w-sm overflow-auto md:mt-3 md:mx-6 items-center md:items-stretch" />
+      <S_NavCategories />
     </>
   );
 };

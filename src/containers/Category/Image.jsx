@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import ProgressiveImage from 'react-progressive-image';
 import { Lightbox } from 'react-modal-image';
-import classnames from 'classnames';
 
-import './style.css';
+import { S_Image } from './styled';
 
 export const Image = ({ image, className }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -16,16 +15,11 @@ export const Image = ({ image, className }) => {
         placeholder="/svg/loading.svg"
       >
         {(src, loading) => (
-          <img
+          <S_Image
             src={src}
             alt={image.url}
-            className={classnames(
-              'w-full h-full max-h-96',
-              loading ? 'object-contain' : 'object-cover',
-              className
-            )}
+            className={className}
             onClick={() => {
-              console.log('yoyo');
               setIsModalOpen(true);
             }}
           />

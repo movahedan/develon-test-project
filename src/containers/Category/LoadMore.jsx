@@ -2,16 +2,12 @@ import React from 'react';
 
 import { Loading } from 'components';
 
+import { S_LoadMore } from './styled';
+
 export const LoadMore = ({ loading, onClick }) => {
   return (
     <div onClick={onClick}>
-      {loading ? (
-        <Loading />
-      ) : (
-        <span className="cursor-pointer inline-block text-lg text-secondary-light font-bold mt-4">
-          Load More
-        </span>
-      )}
+      {loading ? <Loading /> : <S_LoadMore>Load More</S_LoadMore>}
     </div>
   );
 };
